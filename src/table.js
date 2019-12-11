@@ -10,6 +10,8 @@ import Grid from "@material-ui/core/Grid";
 import ArrowDownwardRoundedIcon from "@material-ui/icons/ArrowDownwardRounded";
 import ArrowUpwardRoundedIcon from "@material-ui/icons/ArrowUpwardRounded";
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
+
+import DatePicker from "./datePicker.js";
 import { theme } from "./theme.js";
 
 const StyledTableCell = withStyles(theme => ({
@@ -60,20 +62,15 @@ const rows = [
 ];
 
 const useStyles = makeStyles({
-  root: {
-    width: "100%",
-    height: "100%",
-    overflowX: "auto"
-  },
   tableWrapper: {
     maxHeight: 400,
     overflow: "auto"
   },
   table: {
-    minWidth: 200
+    minWidth: 250
   },
   title: {
-    width: "100%",
+    minWidth: 215,
     padding: "0.5em 0.5em",
     margin: 0,
     background: "#ffffff",
@@ -96,7 +93,11 @@ export default function CustomizedTables() {
 
   return (
     <MuiThemeProvider theme={theme}>
-      <div className={classes.root}>
+      <div>
+        <div style={{ fontSize: 25 }}>
+          表示日：
+          <DatePicker />
+        </div>
         <Grid container spacing={5}>
           <Grid container item xs={12} sm={6} md={4} lg={3} spacing={2}>
             <Grid container item zeroMinWidth>
